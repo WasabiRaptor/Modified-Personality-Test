@@ -17,61 +17,25 @@ personalityTypes =
   "Sassy",    //15
   "Timid"];   //16
 
-pokemonTypes =
-  ["Bulbasaur", //1 
-  "Charmander", //2
-  "Squirtle",   //3
-  "Chickorita", //4
-  "Cyndaquil",  //5
-  "Totodile",   //6
-  "Treeko",     //7
-  "Torchic",    //8
-  "Mudkip",     //9
-  "Turtwig",    //10
-  "Chimchar",   //11
-  "Piplup",     //12
-  "Snivy",      //13
-  "Tepig",      //14
-  "Oshawott",   //15
-  "Chespin",    //16
-  "Fennekin",   //17
-  "Froakie",    //18
-  "Rowlet",     //19
-  "Litten",     //20
-  "Popplio",    //21
-  "Pikachu",    //22
-  "Vulpix",     //23
-  "Eevee",      //24
-  "Meowth",     //25
-  "Psyduck",    //26
-  "Machop",     //27
-  "Cubone",     //28
-  "Phanphy",    //29
-  "Skitty",     //30
-  "Shinx",      //31
-  "Munchlax",   //32
-  "Riolu",      //33
-  "Axew",       //34
-  "Magnemite",  //35
-  "Bellsprout", //36
-  "Mareep",     //37
-  "Sentret",    //38
-  "Poochyena",  //39
-  "Aron",       //40
-  "Budew",      //41
-  "Gible",      //42
-  "Klink",      //43
-  "Deino",      //44
-  "Flabebe",    //45
-  "Espurr",     //46
-  "Grubbin",    //47
-  "Rockruff",   //48
-  "Zubat",      //49
-  "Caterpie"];  //50
+pokemon = [
+    [NaN, "Squirtle", "Turtwig"], //Bold
+    ["Charmander", NaN, "Pikachu"],//Brave
+    ["Chikorita", "Cyndaquil", NaN,],//Calm
+    ["Bulbasaur", NaN, "Charmander"],//Docile
+    [NaN,"Treeko", "Torchic"],//Hardy
+    ["Pikachu", NaN, "Shinx"],//Hasty
+    ["Chimchar", "Piplup", NaN],//Impish
+    ["Eevee", NaN, "Totodile"],//Jolly
+    [NaN, "Bulbasaur", "Mudkip"],//Lonely
+    ["Skitty", NaN, "Chimchar"],//Naive
+    ["Chickorita", "Treeko", NaN],//Quiet
+    ["Squirtle", NaN, "Piplup"],//Quirky
+    [NaN, "Torchic", "Mudkip"],//Rash
+    ["Vulpix", NaN, "Phanphy"],//Relaxed
+    ["Riolu", "Totodile", NaN],//Sassy
+    ["Cyndaquil", NaN, "Turtwig"]//Timid
+]
 
-function pokemonDecide(points) {
-
-}
 
 function nextQuestion(n) {
   if (n < questions.length) {
@@ -129,6 +93,9 @@ function results() {
     divResults.append(result);
     result.style.width = ((quizPoints[i][1] + 1) / (quizPoints[15][1] + 1) * 500) + "px";
   }
-  document.getElementById("you").textContent = quizPoints[15][0];
+  let majorPersonality = quizPoints[1][1]
+  let minorPersonality = quizPoints[2][1]
+  let chosenPokemon = pokemon[majorPersonality][minorPersonality];
+  document.getElementById("you").textContent = chosenPokemon;
   divResults.style.display = "block";
 }
